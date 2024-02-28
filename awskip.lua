@@ -46,8 +46,9 @@ function _OnFrame()
             ARD = ReadLong(ARDPointer)
         end
     end
-
+if World==9 then
     MiniGameSkip()
+end
 end
 function in_blacklist(room_id)
     for index, value in ipairs(skip_minigame_blacklist) do
