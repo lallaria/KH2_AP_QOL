@@ -1,3 +1,11 @@
+skip_minigame_blacklist={
+9, -- spooky cave id (dont comment out or checks are unobtainable)
+-- 1, -- starry hill room id 
+--8, -- kanga's howse minigame room id
+--6, -- piglets howse minigame room id
+--7, -- rabbits howse minigame room id
+}
+
 function _OnInit()
     print('AP QOL AWSKIP 1.0')
 	if GAME_ID == 0x431219CC and ENGINE_TYPE == 'BACKEND' then --PC
@@ -72,21 +80,21 @@ function _OnFrame()
             MSN = 0x0BF08C0 - 0x56450E
         end
         ARD = ReadLong(ARDPointer)
-        MiniGameSkip()
     end
+    MiniGameSkip()
 end
 
---function in_blacklist(room_id)
---    for index, value in ipairs(skip_minigame_blacklist) do
---        if value == room_id then
---            return true
---        end
---    end
---    return false
---end
+function in_blacklist(room_id)
+    for index, value in ipairs(skip_minigame_blacklist) do
+        if value == room_id then
+            return true
+        end
+    end
+    return false
+end
 
 function MiniGameSkip()
-	if World==9 and Room~=9 then --and in_blacklist==false then
+	if World==9 and in_blacklist then
 		DebugFlagClearMinigame = ReadLong(0x2AE3488 - offset)+0xB10
 		WriteByte(DebugFlagClearMinigame, 1, true)
 	end
