@@ -25,39 +25,26 @@ function _OnFrame()
     Evt    = ReadShort(Now+0x08)
     PrevPlace = ReadShort(Now+0x30)
     if Place == 0xFFFF or not MSN then
-        if not OnPC then
-            Obj0 = ReadInt(Obj0Pointer)
-            Sys3 = ReadInt(Sys3Pointer)
-            Btl0 = ReadInt(Btl0Pointer)
-            MSN = 0x04FA440
-        else
-            Obj0 = ReadLong(Obj0Pointer)
-            Sys3 = ReadLong(Sys3Pointer)
-            Btl0 = ReadLong(Btl0Pointer)
-            MSN = 0x0BF08C0 - 0x56450E
-        end
+        Obj0 = ReadLong(Obj0Pointer)
+        Sys3 = ReadLong(Sys3Pointer)
+        Btl0 = ReadLong(Btl0Pointer)
+        MSN = 0x0BF08C0 - 0x56450E
     end
-    if not OnPC then
-        ARD = ReadInt(ARDPointer)
-    else
-        ARD = ReadLong(ARDPointer)
-    end
-    if World==9 then
-        MiniGameSkip()
-    end
+    ARD = ReadLong(ARDPointer)
+    MiniGameSkip()
 end
 
---function in_blacklist(room_id)
---    for index, value in ipairs(skip_minigame_blacklist) do
---        if value == room_id then
---            return true
---        end
---    end
---    return false
---end
+function in_blacklist(room_id)
+    for index, value in ipairs(skip_minigame_blacklist) do
+        if value == room_id then
+            return true
+        end
+    end
+    return false
+end
 
 function MiniGameSkip()
-	if World==9 then
+	if World==9 and in_blacklist==false then
 		DebugFlagClearMinigame = ReadLong(0x2AE3488 - 0x56454E)+0xB10
 		WriteByte(DebugFlagClearMinigame, 1, true)
 	end
