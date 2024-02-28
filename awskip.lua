@@ -60,8 +60,6 @@ function in_blacklist(room_id)
 end
 
 function MiniGameSkip()
-    print(Room)
-    print(in_blacklist(Room))
 	if World==9 and in_blacklist(Room)==false then
 		DebugFlagClearMinigame = ReadLong(0x2AE3488 - 0x56454E)+0xB10
 		WriteByte(DebugFlagClearMinigame, 1, true)
