@@ -1,6 +1,6 @@
-title: Archipelago Companion
+title: Archipelago Companion QOL
 originalAuthor: JaredWeakStrike and Shananas
-description: Necessary files for the KH2 Archipelago. Thanks to num for assistance with GoA edits. Thanks to the KH2 Rando Devs for the Quality of life features.
+description: Archipelago Quality of Life Mod Pack
 assets:
 #Lua Script
 - name: scripts/awskip.lua
