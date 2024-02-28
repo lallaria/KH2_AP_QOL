@@ -1,0 +1,17 @@
+title: Archipelago Companion
+originalAuthor: JaredWeakStrike and Shananas
+description: Necessary files for the KH2 Archipelago. Thanks to num for assistance with GoA edits. Thanks to the KH2 Rando Devs for the Quality of life features.
+assets:
+#Lua Script
+- name: scripts/awskip.lua
+  method: copy
+  source:
+  - name: awskip.lua
+#obj bulkies
+- method: copy
+  name: obj/M_EX590.mset
+  multi:
+  - name: obj/M_EX590_NM.mset
+  source:
+  - name: M_EX590.mset
+
