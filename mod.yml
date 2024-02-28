@@ -7,11 +7,41 @@ assets:
   method: copy
   source:
   - name: awskip.lua
-#obj bulkies
+#faster urns and CoR Orb drop more drive orbs
+- method: binarc
+  name: 00battle.bin
+  source:
+  - method: listpatch
+    name: przt
+    source:
+    - name: 00battle.bin/przt.yml
+      type: przt
+    type: list
+#quick bulky vendor
 - method: copy
   name: obj/M_EX590.mset
   multi:
   - name: obj/M_EX590_NM.mset
   source:
   - name: M_EX590.mset
+#carpet escape
+- method: binarc
+  multi:
+  - name: ard/us/al11.ard
+  - name: ard/fr/al11.ard
+  - name: ard/gr/al11.ard
+  - name: ard/it/al11.ard
+  - name: ard/sp/al11.ard
+  name: ard/al11.ard
+  source:
+  - method: areadatascript
+    name: evt
+    source:
+    - name: skip_carpet_escape.script
+    type: areadatascript
+#wardrobe skip
+- method: copy
+  name: obj/N_BB080_BTL.mset
+  source:
+  - name: wardrobe_skip.mset
 
