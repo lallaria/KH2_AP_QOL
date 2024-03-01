@@ -87,14 +87,14 @@ end
 function in_blacklist(room_id)
     for index, value in ipairs(skip_minigame_blacklist) do
         if value == room_id then
-            return true
+            return false
         end
     end
-    return false
+    return true
 end
 
 function MiniGameSkip()
-	if World==9 and in_blacklist then
+	if World==9 and in_blacklist(Room) then
 		DebugFlagClearMinigame = ReadLong(0x2AE3488 - offset)+0xB10
 		WriteByte(DebugFlagClearMinigame, 1, true)
 	end
