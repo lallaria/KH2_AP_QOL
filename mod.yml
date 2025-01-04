@@ -2,11 +2,6 @@ title: Archipelago Companion QOL
 originalAuthor: JaredWeakStrike and Shananas
 description: Archipelago Quality of Life Mod Pack
 assets:
-#Lua Script
-- name: scripts/awskip.lua
-  method: copy
-  source:
-  - name: awskip.lua
 #faster urns and CoR Orb drop more drive orbs
 - method: binarc
   name: 00battle.bin
